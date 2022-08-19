@@ -13,7 +13,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #f3f306;
 }
 
 nav {
@@ -22,10 +22,14 @@ nav {
 
 nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #f90505;
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  color: #f90505;
+}
+
+body {
+  background-image: url("./assets/HD-wallpaper-judge,-hammer,-law,-gavel,-justice-concept-.jpeg");
 }
 </style>
