@@ -17,6 +17,7 @@
     <router-link to="">Charts</router-link>
   </nav>
   <h1 style="font-size: 60px">Voir Dire</h1>
+
   <router-view />
   <footer style="color: chartreuse">
     This website created and maintained by A.LLC
