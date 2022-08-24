@@ -4,7 +4,9 @@
     |
     <router-link to="/about">About</router-link>
     |
-    <router-link to="">Log In</router-link>
+    <router-link to="/login">Log In</router-link>
+    |
+    <router-link to="/logout">Log Out</router-link>
     |
     <router-link to="">All Jurors</router-link>
     |
