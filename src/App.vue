@@ -6,9 +6,9 @@
     |
     <router-link to="/login">Log In</router-link>
     |
-    <router-link to="/logout">Log Out</router-link>
+    <router-link to="/logout">Logout</router-link>
     |
-    <router-link to="">All Jurors</router-link>
+    <router-link to="/jurors">All Jurors</router-link>
     |
     <router-link to="">Juror Search</router-link>
     |

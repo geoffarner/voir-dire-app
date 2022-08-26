@@ -15,7 +15,7 @@ export default {
         .then((response) => {
           axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
           localStorage.setItem("jwt", response.data.jwt);
-          this.$router.push("/post");
+          this.$router.push("/jurors");
         })
         .catch((error) => {
           console.log(error.response);
@@ -35,26 +35,15 @@ export default {
       <ul>
         <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
       </ul>
-      <div class="email">
+      <div>
         <label>Email:</label>
-        <input
-          class="form-control form-control-sm"
-          type="email"
-          placeholder="Example@example.com"
-          aria-label=".form-control-sm"
-          v-model="newSessionParams.email"
-        />
+        <input type="email" v-model="newSessionParams.email" />
       </div>
-      <div class="password">
+      <div>
         <label>Password:</label>
-        <input
-          class="form-control form-control-sm"
-          type="password"
-          placeholder="Type in your incredibly unique password"
-          aria-label=".form-control-sm"
-          v-model="newSessionParams.email"
-        />
+        <input type="password" v-model="newSessionParams.password" />
       </div>
+      <input type="submit" value="Submit" />
     </form>
   </div>
 </template>
