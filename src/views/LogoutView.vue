@@ -12,6 +12,7 @@ export default {
 </script>
 
 <template>
+  <div class="logout"></div>
   <button id="logout-button" @click.prevent="handleLogout" :disabled="isLoggedOut">Log out</button>
 </template>
 

@@ -10,7 +10,7 @@
     |
     <router-link to="/jurors">All Jurors</router-link>
     |
-    <router-link to="">Juror Search</router-link>
+    <router-link to="/jurors/:id">Juror Search</router-link>
     |
     <router-link to="">Juror Selection</router-link>
     |
