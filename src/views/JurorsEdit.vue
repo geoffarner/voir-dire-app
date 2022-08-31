@@ -11,6 +11,7 @@ export default {
   },
   created: function () {
     axios.get("/jurors/" + this.$route.params.id).then((response) => {
+      console.log("jurors show", response);
       this.juror = response.data;
       this.editJurorParams = this.juror;
     });
@@ -40,15 +41,23 @@ export default {
       </ul>
       <p>{{ juror.name }}</p>
       <p>{{ juror.panel_number }}</p>
-      Notes:
-      <input type="text" v-model="editJurorParams.notes" />
-      | Jury Pool:
-      <input type="text" v-model="editJurorParams.jury_pool" />
-      | Jury Box:
-      <input type="text" v-model="editJurorParams.jury_box" />
-      | Jury Alternate:
-      <input type="text" v-model="editJurorParams.alternate" />
-      |
+      <div>
+        Notes:
+        <input type="text" v-model="editJurorParams.notes" />
+      </div>
+      <div>
+        Jury Pool:
+        <input type="text" v-model="editJurorParams.jury_pool" />
+      </div>
+      <div>
+        Jury Box:
+        <input type="text" v-model="editJurorParams.jury_box" />
+      </div>
+      <div>
+        Jury Alternate:
+        <input type="text" v-model="editJurorParams.alternate" />
+      </div>
+
       <input type="submit" value="Update" />
     </form>
   </div>

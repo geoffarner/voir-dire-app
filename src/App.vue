@@ -10,11 +10,9 @@
     |
     <router-link to="/jurors">All Jurors</router-link>
     |
-    <router-link to="/jurors/:id">Juror Search</router-link>
+    <router-link to="/jurors/:id">Juror Info</router-link>
     |
-    <router-link to="">Juror Selection</router-link>
-    |
-    <router-link to="">Jury Box</router-link>
+    <router-link to="/jurors/:id/edit">Juror Edit</router-link>
     |
     <router-link to="">Charts</router-link>
   </nav>

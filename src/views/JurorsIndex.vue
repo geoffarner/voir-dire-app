@@ -29,6 +29,9 @@ export default {
         return lowerName.includes(lowerNameFilter) || juror.panel_number == this.nameFilter;
       });
     },
+    // goToJurorsEdit() {
+    //   this.$router.push("`/jurors/${juror.id}`");
+    // },
   },
 };
 </script>
@@ -48,6 +51,7 @@ export default {
       v-bind:class="{ selected: juror === currentJuror }"
     >
       <h4>Name: {{ juror.name }}</h4>
+      <router-link v-bind:to="`/jurors/${juror.id}`">Show Juror</router-link>
       <p>Panel Number: {{ juror.panel_number }}</p>
       <p>Age: {{ juror.age }}</p>
       <p>Sex: {{ juror.sex }}</p>
