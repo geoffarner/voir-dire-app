@@ -10,22 +10,21 @@ export default {
     };
   },
   created: function () {
-    axios.get("/jurors/" + this.$route.params.id).then((response) => {
+    axios.get("/jurors/" + this.$route.params.id + ".json").then((response) => {
       console.log("jurors show", response);
       this.juror = response.data;
       this.editJurorParams = this.juror;
     });
   },
   methods: {
-    updateJuror: function (juror) {
+    updateJuror: function () {
       axios
-        .patch("/jurors/" + juror.id, this.editJurorParams)
+        .patch("/jurors/" + this.$route.params.id + ".json", this.editJurorParams)
         .then((response) => {
-          console.log("jurors update", response);
+          console.log(response.data);
           this.$router.push("/jurors");
         })
         .catch((error) => {
-          console.log("jurors update error", error.response);
           this.errors = error.response.data.errors;
         });
     },
@@ -39,8 +38,8 @@ export default {
       <ul>
         <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
       </ul>
-      <p>{{ juror.name }}</p>
-      <p>{{ juror.panel_number }}</p>
+      <p>Name:{{ juror.name }}</p>
+      <p>Panel Number:{{ juror.panel_number }}</p>
       <div>
         Notes:
         <input type="text" v-model="editJurorParams.notes" />
@@ -55,7 +54,7 @@ export default {
       </div>
       <div>
         Jury Alternate:
-        <input type="text" v-model="editJurorParams.alternate" />
+        <input type="text" v-model="editJurorParams.jury_alternate" />
       </div>
 
       <input type="submit" value="Update" />

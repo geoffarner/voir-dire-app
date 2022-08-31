@@ -12,8 +12,6 @@
     |
     <router-link to="/jurors/:id">Juror Info</router-link>
     |
-    <router-link to="/jurors/:id/edit">Juror Edit</router-link>
-    |
     <router-link to="">Charts</router-link>
   </nav>
   <h1 style="font-size: 60px">Voir Dire</h1>
@@ -48,7 +46,7 @@ nav a.router-link-exact-active {
   color: #1d05f9;
 } */
 a:link {
-  color: rgb(14, 6, 241);
+  color: rgb(3, 248, 89);
   background-color: transparent;
   text-decoration: none;
 }
@@ -60,7 +58,7 @@ a:visited {
 }
 
 a:hover {
-  color: rgb(8, 210, 210);
+  color: rgb(3, 210, 210);
   background-color: transparent;
   text-decoration: underline;
 }

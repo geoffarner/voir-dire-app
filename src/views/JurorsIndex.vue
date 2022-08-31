@@ -18,8 +18,8 @@ export default {
   methods: {
     indexJurors: function () {
       axios.get("/jurors.json").then((response) => {
-        console.log("jurors index", response);
         this.jurors = response.data;
+        console.log("All Jurors:", this.jurors);
       });
     },
     filterJurors: function () {
@@ -29,9 +29,6 @@ export default {
         return lowerName.includes(lowerNameFilter) || juror.panel_number == this.nameFilter;
       });
     },
-    // goToJurorsEdit() {
-    //   this.$router.push("`/jurors/${juror.id}`");
-    // },
   },
 };
 </script>
