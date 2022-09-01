@@ -10,6 +10,11 @@ export default {
       nameFilter: "",
     };
   },
+  // computed: {
+  //   orderedJurors: function () {
+  //     return this.jurors.sortBy(this.jurors, "panel_number");
+  //   },
+  // },
 
   created: function () {
     this.indexJurors();
@@ -19,6 +24,9 @@ export default {
     indexJurors: function () {
       axios.get("/jurors.json").then((response) => {
         this.jurors = response.data;
+        this.jurors = this.jurors.sort(function (a, b) {
+          return a.panel_number - b.panel_number;
+        });
         console.log("All Jurors:", this.jurors);
       });
     },
@@ -48,7 +56,7 @@ export default {
       v-bind:class="{ selected: juror === currentJuror }"
     >
       <h4>Name: {{ juror.name }}</h4>
-      <router-link v-bind:to="`/jurors/${juror.id}`">Show Juror</router-link>
+      <router-link v-bind:to="`/jurors/${juror.id}/edit`">Edit Juror</router-link>
       <p>Panel Number: {{ juror.panel_number }}</p>
       <p>Age: {{ juror.age }}</p>
       <p>Sex: {{ juror.sex }}</p>

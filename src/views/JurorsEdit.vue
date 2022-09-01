@@ -56,8 +56,12 @@ export default {
         Jury Alternate:
         <input type="text" v-model="editJurorParams.jury_alternate" />
       </div>
-
-      <input type="submit" value="Update" />
+      <div>
+        <input type="submit" value="Update" />
+      </div>
+      <div>
+        <router-link to="/jurors">Back to all jurors</router-link>
+      </div>
     </form>
   </div>
 </template>

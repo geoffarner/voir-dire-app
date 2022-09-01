@@ -10,8 +10,6 @@
     |
     <router-link to="/jurors">All Jurors</router-link>
     |
-    <router-link to="/jurors/:id">Juror Info</router-link>
-    |
     <router-link to="">Charts</router-link>
   </nav>
   <h1 style="font-size: 60px">Voir Dire</h1>
