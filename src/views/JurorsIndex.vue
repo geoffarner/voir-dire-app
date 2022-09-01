@@ -10,11 +10,6 @@ export default {
       nameFilter: "",
     };
   },
-  // computed: {
-  //   orderedJurors: function () {
-  //     return this.jurors.sortBy(this.jurors, "panel_number");
-  //   },
-  // },
 
   created: function () {
     this.indexJurors();

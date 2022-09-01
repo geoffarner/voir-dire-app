@@ -1,24 +1,27 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link>
-    |
-    <router-link to="/about">About</router-link>
-    |
-    <router-link to="/login">Log In</router-link>
-    |
-    <router-link to="/logout">Logout</router-link>
-    |
-    <router-link to="/jurors">All Jurors</router-link>
-    |
-    <router-link to="">Charts</router-link>
-  </nav>
-  <h1 style="font-size: 60px">Voir Dire</h1>
-
+  <header>
+    <h1 style="font-size: 60px">Voir Dire</h1>
+    <nav>
+      <router-link to="/">Home</router-link>
+      |
+      <router-link to="/about">About</router-link>
+      |
+      <router-link to="/login">Log In</router-link>
+      |
+      <router-link to="/logout">Logout</router-link>
+      |
+      <router-link to="/jurors">All Jurors</router-link>
+      |
+      <router-link to="/jurors/chart">Charts</router-link>
+    </nav>
+  </header>
   <router-view />
-  <footer style="color: chartreuse">
-    This website created and maintained by A.LLC
-    <p>Copyright 2020</p>
-  </footer>
+  <div>
+    <footer style="color: chartreuse">
+      This website created and maintained by A.LLC
+      <p>Copyright 2020</p>
+    </footer>
+  </div>
 </template>
 
 <style>
@@ -30,7 +33,10 @@
   color: #f7eb05;
   text-shadow: 6px 2px 5px rgb(6, 6, 6);
 }
-
+#footer {
+  position: fixed;
+  bottom: 0;
+}
 nav {
   padding: 30px;
 }

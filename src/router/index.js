@@ -6,6 +6,7 @@ import LogoutView from "../views/LogoutView.vue";
 import JurorsIndex from "../views/JurorsIndex.vue";
 import JurorsEdit from "../views/JurorsEdit.vue";
 import JurorsShow from "../views/JurorsShow.vue";
+import JuryChart from "../components/JuryChart.vue";
 
 const routes = [
   { path: "/", name: "home", component: HomeView },
@@ -15,6 +16,7 @@ const routes = [
   { path: "/jurors", name: "index", component: JurorsIndex },
   { path: "/jurors/:id/edit", name: "jurors-edit", component: JurorsEdit },
   { path: "/jurors/:id", name: "jurors-show", component: JurorsShow },
+  { path: "/jurors/chart", name: "chart", component: JuryChart },
 ];
 
 const router = createRouter({
