@@ -8,8 +8,8 @@ export default {
   },
   created: function () {
     axios.get("/jurors/" + this.$route.params.id + ".json").then((response) => {
-      console.log("jurors show", response);
       this.juror = response.data;
+      console.log("jurors show", response);
     });
   },
   methods: {},

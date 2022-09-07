@@ -13,14 +13,20 @@
       <router-link to="/jurors">All Jurors</router-link>
       |
       <router-link to="/jurors/chart">Charts</router-link>
+      |
+      <router-link to="/jurors/charttest">TestChart</router-link>
+      |
+      <router-link to="/jurors/jurybox">Jury Box</router-link>
     </nav>
   </header>
   <router-view />
   <div>
-    <footer style="color: chartreuse">
-      This website created and maintained by A.LLC
-      <p>Copyright 2020</p>
-    </footer>
+    <v-footer>
+      <footer style="color: chartreuse">
+        This website created and maintained by A.LLC
+        <p>Copyright 2020</p>
+      </footer>
+    </v-footer>
   </div>
 </template>
 
@@ -34,11 +40,11 @@
   text-shadow: 6px 2px 5px rgb(6, 6, 6);
 }
 #footer {
-  position: fixed;
-  bottom: 0;
+  position: bottom;
+  padding: 20px;
 }
 nav {
-  padding: 30px;
+  padding: 5px;
 }
 /* nav a {
   font-weight: bold;

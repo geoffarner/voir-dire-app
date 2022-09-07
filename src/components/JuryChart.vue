@@ -1,63 +1,66 @@
-<template>
-  <h1>Chart Page</h1>
-  <body>
-    <div class="chart-container">
-      <div class="jury-chart">
-        <canvas id="myChart"></canvas>
-      </div>
-    </div>
-  </body>
+<!-- <template>
+  <Bar
+    :chart-options="chartOptions"
+    :chart-data="chartData"
+    :chart-id="chartId"
+    :dataset-id-key="datasetIdKey"
+    :plugins="plugins"
+    :css-classes="cssClasses"
+    :styles="styles"
+    :width="width"
+    :height="height"
+  />
 </template>
 
 <script>
-import Chart from "chart.js/auto";
+import { Bar } from "vue-chartjs";
+import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from "chart.js";
+
+ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale);
 
 export default {
-  mounted() {
-    const ctx = document.getElementById("myChart");
-
-    const data = {
-      labels: ["Red", "Blue", "Yellow"],
-      datasets: [
-        {
-          label: "My First Dataset",
-          data: [300, 50, 100],
-          backgroundColor: ["rgb(255, 99, 132)", "rgb(54, 162, 235)", "rgb(255, 205, 86)"],
-          hoverOffset: 4,
-        },
-      ],
+  name: "BarChart",
+  components: { Bar },
+  props: {
+    chartId: {
+      type: String,
+      default: "bar-chart",
+    },
+    datasetIdKey: {
+      type: String,
+      default: "label",
+    },
+    width: {
+      type: Number,
+      default: 400,
+    },
+    height: {
+      type: Number,
+      default: 400,
+    },
+    cssClasses: {
+      default: "",
+      type: String,
+    },
+    styles: {
+      type: Object,
+      default: () => {},
+    },
+    plugins: {
+      type: Object,
+      default: () => {},
+    },
+  },
+  data() {
+    return {
+      chartData: {
+        labels: ["January", "February", "March"],
+        datasets: [{ data: [40, 20, 12] }],
+      },
+      chartOptions: {
+        responsive: true,
+      },
     };
-    const myChart = new Chart(ctx, {
-      type: "doughnut",
-      data: data,
-    });
-    myChart;
   },
 };
-</script>
-
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-canvas {
-  background-color: rgb(241, 247, 242);
-}
-.chart-container {
-  position: relative;
-  margin: auto;
-  height: 40vh;
-  width: 40vw;
-}
-</style>
+</script> -->
