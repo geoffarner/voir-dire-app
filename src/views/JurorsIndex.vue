@@ -38,6 +38,7 @@ export default {
 
 <template>
   <h1>Search Jurors</h1>
+  <h2>Enter Name or Panel Number</h2>
   <input v-model="nameFilter" list="names" type="text" placeholder="Name/Panel Number" />
   <button v-on:click="this.nameFilter = ''">Clear Search</button>
   <TransitionGroup name="list">

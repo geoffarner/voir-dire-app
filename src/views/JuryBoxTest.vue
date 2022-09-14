@@ -1,6 +1,6 @@
-<!-- <template>
+<template>
   <div class="drop-zone" @drop="onDrop($event, 1)" @dragenter.prevent @dragover.prevent>
-    <p>Jury Pool</p>
+    <p>Jury Pool Test</p>
     <div
       v-for="item in getList(1)"
       :key="item.id"
@@ -92,4 +92,4 @@ export default {
 .drag-el:nth-last-of-type(1) {
   margin-bottom: 5;
 }
-</style> -->
+</style>

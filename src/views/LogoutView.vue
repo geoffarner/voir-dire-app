@@ -6,14 +6,13 @@ export default {
     localStorage.removeItem("jwt");
     localStorage.removeItem("user_id");
     localStorage.setItem("flashMessage", "Logged Out!");
-    this.$router.push("/logout");
+    this.$router.push("/");
   },
 };
 </script>
 
 <template>
   <div class="logout"></div>
-  <button id="logout-button" @click.prevent="handleLogout" :disabled="isLoggedOut">Log out</button>
 </template>
 
 <style scoped>

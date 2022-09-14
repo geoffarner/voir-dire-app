@@ -1,3 +1,25 @@
+<script>
+export default {
+  data: function () {
+    return {
+      isLoggedIn: !!localStorage.jwt,
+      flashMessage: "Hello!",
+    };
+  },
+  methods: {
+    getUserId: function () {
+      return localStorage.getItem("user_id");
+    },
+  },
+  watch: {
+    $route: function () {
+      this.isLoggedIn = !!localStorage.jwt;
+      this.flashMessage = localStorage.getItem("flashMessage");
+      localStorage.removeItem("flashMessage");
+    },
+  },
+};
+</script>
 <template>
   <header>
     <h1 style="font-size: 60px">Voir Dire</h1>
@@ -10,22 +32,28 @@
       |
       <router-link to="/logout">Logout</router-link>
       |
-      <router-link to="/jurors">All Jurors</router-link>
+      <span v-if="!!isLoggedIn">
+        <router-link to="/jurors">All Jurors</router-link>
+      </span>
       |
-      <router-link to="/jurors/chart">Charts</router-link>
+      <router-link v-if="!!isLoggedIn" to="/jurors/chart">Charts</router-link>
       |
-      <router-link to="/jurors/charttest">TestChart</router-link>
-      |
-      <router-link to="/jurors/jurybox">Jury Box</router-link>
+      <!-- <router-link v-if="!!isLoggedIn" to="/jurors/charttest">TestChart</router-link> -->
+      <!-- |
+      <!- <router-link v-if="!!isLoggedIn" to="/jurors/jurybox">Jury Box</router-link> -->
+      <!-- | -->
+      <router-link v-if="!!isLoggedIn" to="/jurors/juryboxtest">Jury Box Test</router-link>
     </nav>
   </header>
   <router-view />
   <div>
     <v-footer>
-      <footer style="color: chartreuse">
-        This website created and maintained by A.LLC
-        <p>Copyright 2020</p>
-      </footer>
+      This website created and maintained by Geoff Arner
+      <p>Copyright 2020</p>
+      <div>
+        <router-link to="/">Home</router-link>
+      </div>
+      ;
     </v-footer>
   </div>
 </template>

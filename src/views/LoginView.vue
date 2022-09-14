@@ -46,6 +46,9 @@ export default {
       <input type="submit" value="Submit" />
     </form>
   </div>
+  <h3>Guest Credentials</h3>
+  <h4>Email:test@example.com</h4>
+  <h4>Password:password</h4>
 </template>
 
 <style>

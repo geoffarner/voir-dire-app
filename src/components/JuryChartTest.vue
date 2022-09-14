@@ -11,7 +11,7 @@
 
 <script>
 import axios from "axios";
-import Chart from "chart.js/auto";
+// import Chart from "chart.js/auto";
 
 export default {
   data: function () {
@@ -20,37 +20,61 @@ export default {
       jurorsSex: [],
       jurorsMale: [],
       jurorsFemale: [],
+      // myChart: "myChart",
+      methods: {
+        getChartData() {
+          return this.getChartData;
+        },
+        getData() {
+          return this.getData;
+        },
+      },
     };
   },
   mounted() {
     const ctx = document.getElementById("myChart");
 
     const data = {
-      labels: ["Male", "Female"],
-      datasets: [
-        {
-          label: "My First Dataset",
-          data: [5, 10],
-          backgroundColor: ["rgb(255, 99, 132)", "rgb(54, 162, 235)", "rgb(255, 205, 86)"],
-          hoverOffset: 4,
-        },
-      ],
+      data: {
+        datasets: [{ data: [] }],
+        labels: ["Male", "Female"],
+
+        label: "My First Dataset",
+        backgroundColor: ["rgb(255, 99, 132)", "rgb(54, 162, 235)", "rgb(255, 205, 86)"],
+        hoverOffset: 4,
+      },
     };
+  },
+
     const myChart = new Chart(ctx, {
       type: "doughnut",
-      data: {
-        datasets: [{
-            data: [{ id: "Male", nested: {value: this.jurorsMale }}, { id: "Female", {value: this.jurorsFemale }}]
-        },
-      ],
-        options: {
-          parsing: {
-            key: "nested.value",
-          },
-        },
-      }
-    },
+      data: data,
+    }),
 
+  // methods: {
+  //   getData: function () {
+  //     axios
+  //       .get("/jurors.json")
+  //       .then((response) => {
+  //         this.jurors = response.data;
+  //         console.log("jurors", this.jurors);
+  //         this.jurorsSex = this.jurors.map((juror) => juror.sex);
+  //         console.log("Juror Sex:", this.jurorsSex);
+  //         this.jurorsMale = this.jurorsSex.filter((male) => male == "Male").length;
+  //         this.jurorsFemale = this.jurorsSex.filter((female) => female == "Female").length;
+  //         this.getChartData = this.getData;
+  //         console.log("Boys", this.jurorsMale);
+  //         console.log("Girls", this.jurorsFemale);
+  //       })
+  //       .catch(function (error) {
+  //         console.log(error);
+  //       });
+  //   },
+  //   getChartData: function () {
+  //     this.chartConfig.data.push[0] = this.jurorsMale;
+  //     this.chartConfig.data.push[1] = this.jurorsFemale;
+  //   },
+  // },
   created: function () {
     axios.get("/jurors.json").then((response) => {
       this.jurors = response.data;
@@ -61,9 +85,15 @@ export default {
       this.jurorsFemale = this.jurorsSex.filter((female) => female == "Female").length;
       console.log("males", this.jurorsMale);
       console.log("females", this.jurorsFemale);
+      this.data.data[0].push = this.jurorsMale;
+      this.data.data[1].push = this.jurorsFemale;
+      this.myChart.update();
     });
   },
+  myChart,
 };
+// push: function () {
+//   alert("Peace Bitches!");
 </script>
 
 <style scoped>
